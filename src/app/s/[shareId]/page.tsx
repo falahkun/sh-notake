@@ -1,9 +1,10 @@
  "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { decryptNote } from "@/lib/crypto";
+import { MermaidDiagram } from "@/components/mermaid";
 
 type Payload = { ciphertext: string; iv: string; expiresAt: string | null };
 
@@ -58,6 +59,35 @@ export default function SharedNotePage({ params }: { params: Promise<{ shareId: 
                 <table {...props} />
               </div>
             ),
+            pre: ({ children, ...props }) => {
+              const childArray = React.Children.toArray(children);
+              const codeChild = childArray.find(
+                (c): c is React.ReactElement<{ className?: string; children?: React.ReactNode }> =>
+                  React.isValidElement(c) &&
+                  typeof c.props === "object" &&
+                  c.props !== null &&
+                  Boolean((c.props as { className?: string }).className?.match(/(?:^|\s)language-mermaid(?:\s|$)/i))
+              );
+
+              if (codeChild) {
+                const rawCode = codeChild.props.children;
+                const chart = Array.isArray(rawCode) ? rawCode.join("") : String(rawCode || "");
+                return <MermaidDiagram chart={chart} />;
+              }
+
+              return <pre {...props}>{children}</pre>;
+            },
+            code: ({ className, children, ...props }) => {
+              if (className && /(?:^|\s)language-mermaid(?:\s|$)/i.test(className)) {
+                const chart = Array.isArray(children) ? children.join("") : String(children || "");
+                return <MermaidDiagram chart={chart} />;
+              }
+              return (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              );
+            },
           }}
         >
           {markdown}

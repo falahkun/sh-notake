@@ -210,6 +210,71 @@ button:disabled {
   background-color: #f8fafc;
 }
 
+/* Mermaid Diagram Styles */
+.mermaid-wrapper {
+  width: 100%;
+  margin: 28px 0;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  -webkit-overflow-scrolling: touch;
+}
+
+.mermaid-wrapper svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.mermaid-loading {
+  width: 100%;
+  margin: 24px 0;
+  padding: 32px 16px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mermaid-error {
+  margin: 24px 0;
+  padding: 16px 20px;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  border-radius: 12px;
+}
+
+.mermaid-error-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 8px;
+}
+
+.mermaid-error pre {
+  background: #ffffff !important;
+  border: 1px solid #fee2e2;
+  border-radius: 8px;
+  padding: 12px !important;
+  margin: 0 !important;
+  color: #991b1b;
+  font-size: 13px;
+}
+
+
 @media (max-width: 600px) {
   .shell {
     padding: 36px 0;

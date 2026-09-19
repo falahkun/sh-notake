@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 export default defineConfig({
   test: {
-    environment: "jsdom"
+    environment: "node"
   },
   resolve: {
     alias: { "@": resolve(__dirname, "./src") }

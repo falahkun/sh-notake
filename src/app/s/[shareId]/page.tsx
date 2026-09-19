@@ -50,7 +50,18 @@ export default function SharedNotePage({ params }: { params: Promise<{ shareId: 
   return (
     <main className="reading">
       <article className="markdown">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            table: ({ ...props }) => (
+              <div className="table-wrapper">
+                <table {...props} />
+              </div>
+            ),
+          }}
+        >
+          {markdown}
+        </ReactMarkdown>
       </article>
     </main>
   );

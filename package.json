@@ -1,0 +1,40 @@
+{
+  "name": "share-note-sx",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:post": "node scripts/test-post-share.mjs",
+    "test:plain": "node scripts/test-post-plain.mjs",
+    "test:auth": "node scripts/verify-auth-and-keys.mjs",
+    "test:web-auth": "node scripts/verify-web-auth.mjs",
+    "test:update": "node scripts/test-update-notes.mjs",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.59.0",
+    "drizzle-orm": "^0.36.4",
+    "next": "^15.5.0",
+    "postgres": "^3.4.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.1.5",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^5.0.2",
+    "dotenv": "^18.0.1",
+    "drizzle-kit": "^0.27.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

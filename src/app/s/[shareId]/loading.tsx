@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="shell center"><section className="empty card"><h1>Loading note</h1><p>Decrypting the shared note...</p></section></main>}
